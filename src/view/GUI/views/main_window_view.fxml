@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="borderPane"
+            maxHeight="-Infinity"
+            maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="773.0"
+            prefWidth="1048.0"
+            xmlns="http://javafx.com/javafx/10.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="view.GUI.controllers.MainController">
+    <top>
+        <MenuBar prefHeight="0.0" prefWidth="609.0" BorderPane.alignment="CENTER">
+            <Menu mnemonicParsing="false" text="File">
+                <MenuItem fx:id="selectProgramWindow" mnemonicParsing="false" onAction="#selectProgram"
+                          text="Select program..."/>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+                <MenuItem mnemonicParsing="false" text="About"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <right>
+        <VBox prefHeight="556.0" prefWidth="210.0" BorderPane.alignment="CENTER">
+            <Label text="Stack">
+                <VBox.margin>
+                    <Insets left="4.0"/>
+                </VBox.margin>
+            </Label>
+            <ListView fx:id="stackView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"/>
+            <Label text="Threads">
+                <VBox.margin>
+                    <Insets left="4.0"/>
+                </VBox.margin>
+            </Label>
+            <ListView fx:id="threadView" onMouseClicked="#selectThread" prefHeight="197.0" prefWidth="117.0"/>
+        </VBox>
+    </right>
+    <center>
+        <VBox prefHeight="720.0" prefWidth="732.0" BorderPane.alignment="CENTER">
+            <Label text="Program">
+                <VBox.margin>
+                    <Insets left="4.0"/>
+                </VBox.margin>
+            </Label>
+            <ListView fx:id="programView" prefHeight="442.0" prefWidth="615.0"/>
+            <Label text="Output">
+                <VBox.margin>
+                    <Insets left="4.0"/>
+                </VBox.margin>
+            </Label>
+            <ListView fx:id="outputView" prefHeight="229.0" prefWidth="628.0" VBox.vgrow="ALWAYS"/>
+            <HBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="runButton" mnemonicParsing="false" onAction="#runOneStep" prefHeight="21.0" prefWidth="227.0"
+                        text="Run one step"/>
+                <Region HBox.hgrow="ALWAYS"/>
+            </HBox>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox BorderPane.alignment="CENTER">
+            <Label text="\@SocaciuMihai"/>
+            <Region prefHeight="10.0" prefWidth="905.0" HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </bottom>
+    <left>
+        <VBox BorderPane.alignment="CENTER">
+            <HBox prefWidth="200.0">
+                <Label prefHeight="21.0" prefWidth="216.0" text="Nr of PrgStates"/>
+                <TextField fx:id="prgStatesNr" editable="false" prefHeight="31.0" prefWidth="220.0">
+                    <HBox.margin>
+                        <Insets right="2.0"/>
+                    </HBox.margin>
+                </TextField>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="720.0" prefWidth="425.0">
+                <VBox prefHeight="720.0" prefWidth="210.0">
+                    <Label text="Symbol Table"/>
+                    <TableView fx:id="symTableView" prefHeight="200.0" prefWidth="200.0">
+                        <columns>
+                            <TableColumn fx:id="symVarColumn" prefWidth="106.0" text="Variable"/>
+                            <TableColumn fx:id="symValueColumn" minWidth="100.0" prefWidth="103.0"
+                                         text="Value"/>
+                        </columns>
+                    </TableView>
+                    <Label text="Heap"/>
+                    <TableView fx:id="heapView" prefHeight="200.0" prefWidth="194.0">
+                        <columns>
+                            <TableColumn fx:id="heapAddrColumn" maxWidth="109.0" minWidth="100.0"
+                                         prefWidth="106.0" text="Address"/>
+                            <TableColumn fx:id="heapValueColumn" prefWidth="103.0" text="Value"/>
+                        </columns>
+                    </TableView>
+                    <Label text="File Table"/>
+                    <ListView fx:id="fileListView" prefHeight="200.0" prefWidth="200.0" />
+                </VBox>
+                <VBox prefHeight="720.0" prefWidth="210.0">
+                    <Label text="Lock Table"/>
+                    <TableView fx:id="lockView" prefHeight="200.0" prefWidth="212.0">
+                        <columns>
+                            <TableColumn fx:id="lockLocationColumn" prefWidth="106.0" text="Address"/>
+                            <TableColumn fx:id="lockValueColumn" prefWidth="103.0" text="Value"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </HBox>
+        </VBox>
+    </left>
+</BorderPane>
